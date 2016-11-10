@@ -1,0 +1,57 @@
+\documentclass[
+	toc=listof, 
+	toc=bibliography, % Literaturverzeichnis in das Inhaltsverzeichnis aufnehmen
+	footnotes=multiple, % Trennen von direkt aufeinander folgenden Fußnoten
+	parskip=half, % vertikalen Abstand zwischen Absätzen verwenden anstatt
+	% horizontale Einrückung von Folgeabsätzen
+	headlines=2
+]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{uarial}
+
+\newcommand{\titel}{Betriebliche Standardsoftware}
+\newcommand{\untertitel}{Übungsblatt 4 - Rollen, Workflow, Entwicklung}
+\newcommand{\abgabedatum}{9. November 2016}
+\newcommand{\keywords}{BSS, SAP, Rollen, Workflow, Entwicklung}
+\newcommand{\datum}{\today} 
+ 
+\newcommand{\autoren}{
+	Mario Kellner/201520916/mario.kellner@studmail.w-hs.de,
+	Markus Hausmann/201524030/markus.hausmann@studmail.w-hs.de,
+	Jan Momper/201521501/jan-markus.momper@studmail.w-hs.de
+}
+
+\input{Meta.tex}
+\input{Allgemein/Packages.tex} 
+\input{Allgemein/Seitenstil.tex}
+\input{Allgemein/Befehle.tex}
+
+\begin{document}
+\input{Deckblatt.tex}
+\clearpage
+
+% Inhaltsverzeichnis
+\pdfbookmark[1]{Inhaltsverzeichnis}{toc}
+\pagenumbering{Roman}
+\tableofcontents
+\clearpage
+ 
+%\newcommand{\abkvz}{Abkürzungsverzeichnis}
+%\renewcommand{\nomname}{\abkvz}
+%\section*{\abkvz}
+%\markboth{\abkvz}{\abkvz}
+%\addcontentsline{toc}{section}{\abkvz}
+%\input{Abkuerzungen.tex}
+%\clearpage
+
+% Inhalt
+\pagenumbering{arabic}
+\input{Inhalt.tex}
+
+% Table & figs 
+%\listoffigures
+%\clearpage
+%\listoftables
+%\clearpage
+\end{document}

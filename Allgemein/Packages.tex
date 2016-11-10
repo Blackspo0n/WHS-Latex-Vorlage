@@ -1,0 +1,337 @@
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} % Euro-Zeichen etc.
+\usepackage{lmodern} % bessere Fonts
+\usepackage{relsize} % SchriftgrÃ¶ÃŸe relativ festlegen
+\renewcommand{\familydefault}{\sfdefault}
+
+\PassOptionsToPackage{table}{xcolor}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{lscape}
+\newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}} % Spaltendefinition rechtsbÃ¼ndig mit definierter Breite
+\usepackage[dvips,final]{graphicx} % Einbinden v on JPG-Grafiken ermÃ¶glichen
+\usepackage{graphics} % keepaspectratio
+\usepackage{floatflt} % zum UmflieÃŸen von Bildern
+\graphicspath{{Bilder/}} % hier liegen die Bilder des Dokuments
+\usepackage{amsmath,amsfonts} % Befehle aus AMSTeX fÃ¼r mathematische Symbole
+\usepackage{enumitem} % anpassbare Enumerates/Itemizes
+\usepackage{xspace} % sorgt dafÃ¼r, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
+
+\usepackage{makeidx} % fÃ¼r Index-Ausgabe mit \printindex
+\usepackage{acronym} % es werden nur benutzte Definitionen aufgelistet
+\usepackage[table]{xcolor}
+\usepackage{hhline}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{eso-pic}
+
+% Symbolverzeichnis
+\usepackage[intoc]{nomencl}
+\let\abbrev\nomenclature
+\renewcommand{\nomname}{AbkÃ¼rzungsverzeichnis}
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+
+\usepackage{url} % URL verlinken, lange URLs umbrechen etc.
+\usepackage{chngcntr} % fortlaufendes Durchnummerieren der FuÃŸnoten
+\usepackage{ifthen} % bei der Definition eigener Befehle benÃ¶tigt
+\usepackage{todonotes} % definiert u.a. die Befehle \todo und \listoftodos
+\usepackage[square]{natbib} % wichtig fÃ¼r korrekte Zitierweise
+
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{arrayjob}
+\usepackage{xmpincl}
+\includexmp{copyright}
+
+\pdfminorversion=5 % erlaubt das EinfÃ¼gen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie fÃ¼r fehlerfreies Einbetten!)
+\usepackage[
+    bookmarks,
+    bookmarksnumbered,    
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    colorlinks=true, % diese Farbdefinitionen zeichnen Links im PDF farblich aus
+    linkcolor=WHSGreen, % einfache interne VerknÃ¼pfungen
+    anchorcolor=WHSGreen,% Ankertext
+    citecolor=WHSGreen, % Verweise auf LiteraturverzeichniseintrÃ¤ge im Text
+    filecolor=WHSGreen, % VerknÃ¼pfungen, die lokale Dateien Ã¶ffnen
+    menucolor=WHSGreen, % Acrobat-MenÃ¼punkte
+    urlcolor=WHSGreen, % diese Farbdefinitionen sollten fÃ¼r den Druck verwendet werden (alles% schwarz)
+    pdftex,
+    plainpages=false, % zur korrekten Erstellung der Bookmarks
+    pdfpagelabels=true, % zur korrekten Erstellung der Bookmarks
+    hypertexnames=false, % zur korrekten Erstellung der Bookmarks
+    linktocpage % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
+]{hyperref}
+
+
+\hypersetup{
+    pdftitle={\titel},
+    pdfauthor={\autor},
+    pdftrapped={true},
+    pdfcreator={Texlipse},
+    pdfsubject={\untertitel},
+    pdfkeywords={\keywords},
+    pdfproducer={pdftex},
+}
+
+\usepackage{listings}
+\usepackage{xcolor} 
+
+\definecolor{hellgelb}{rgb}{1,1,0.9}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{0,0.5,0}
+\definecolor{colString}{rgb}{1,0,0}
+
+\lstset{
+    float=hbp,
+	basicstyle=\footnotesize,
+    identifierstyle=\color{colIdentifier},
+    keywordstyle=\color{colKeys},
+    stringstyle=\color{colString},
+    commentstyle=\color{colComments},
+    backgroundcolor=\color{hellgelb},
+    columns=flexible,
+    tabsize=2,
+    frame=single,
+    extendedchars=true,
+    showspaces=false,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny,
+    breaklines=true,
+    breakautoindent=true,
+	captionpos=b,
+}
+\lstdefinelanguage{cs}{
+	sensitive=false,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	morekeywords={
+		abstract,event,new,struct,as,explicit,null,switch
+		base,extern,object,this,bool,false,operator,throw,
+		break,finally,out,true,byte,fixed,override,try,
+		case,float,params,typeof,catch,for,private,uint,
+		char,foreach,protected,ulong,checked,goto,public,unchecked,
+		class,if,readonly,unsafe,const,implicit,ref,ushort,
+		continue,in,return,using,decimal,int,sbyte,virtual,
+		default,interface,sealed,volatile,delegate,internal,short,void,
+		do,is,sizeof,while,double,lock,stackalloc,
+		else,long,static,enum,namespace,string},
+}
+\lstdefinelanguage{natural}{
+	sensitive=false,
+	morecomment=[l]{/*},
+	morestring=[b]",
+	morestring=[b]',
+	alsodigit={-,*},
+	morekeywords={
+		DEFINE,DATA,LOCAL,END-DEFINE,WRITE,CALLNAT,PARAMETER,USING,
+		IF,NOT,END-IF,ON,*ERROR-NR,ERROR,END-ERROR,ESCAPE,ROUTINE,
+		PERFORM,SUBROUTINE,END-SUBROUTINE,CONST,END-FOR,END,FOR,RESIZE,
+		ARRAY,TO,BY,VALUE,RESET,COMPRESS,INTO,EQ},
+}
+\lstdefinelanguage{php}{
+	sensitive=false,
+	morecomment=[l]{/*},
+	morestring=[b]",
+	morestring=[b]',
+	alsodigit={-,*},
+	morekeywords={
+		abstract,and,array,as,break,case,catch,cfunction,class,clone,const,
+		continue,declare,default,do,else,elseif,enddeclare,endfor,endforeach,
+		endif,endswitch,endwhile,extends,final,for,foreach,function,global,
+		goto,if,implements,interface,instanceof,namespace,new,old_function,or,
+		private,protected,public,static,switch,throw,try,use,var,while,xor
+		die,echo,empty,exit,eval,include,include_once,isset,list,require,
+		require_once,return,print,unset},
+}
+
+
+\pdftrailerid{}
+\pdfsuppressptexinfo15
+
+\usepackage{upquote}
+\usepackage{listings}
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+        language=html,
+        sensitive=true, 
+        alsoletter={<>=-},
+        otherkeywords={
+        % HTML tags
+        <html>, <head>, <title>, </title>, <meta, />, </head>, <body>,
+        <canvas, \/canvas>, <script>, </script>, </body>, </html>, <!, html>, <style>, </style>, ><
+        },  
+        ndkeywords={
+        % General
+        =,
+        % HTML attributes
+        charset=, id=, width=, height=,
+        % CSS properties
+        border:, transform:, -moz-transform:, transition-duration:, transition-property:, transition-timing-function:
+        },  
+        morecomment=[s]{<!--}{-->},
+        tag=[s]
+}
+
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}      
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\usepackage{upquote}
+\usepackage{listings}
+% CSS
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,margin,padding,form,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width,
+  transition:, transform:, transition-property, transition-duration, transition-timing-function}, sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
+}
+
+% JavaScript
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,   
+  alsoletter={<>=-},    
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+    <!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+    % body
+    </body, <body,
+    % Divs
+    </div, <div, </div>, 
+    % Paragraphs
+    </p, <p, </p>,
+    % scripts
+    </script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>,<img ,
+  <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+    % CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {%
+  % General design
+  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true, 
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=html,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},  
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+%
+\lstdefinestyle{py} {%
+language=python,
+literate=%
+*{0}{{{\color{lightred}0}}}1
+{1}{{{\color{lightred}1}}}1
+{2}{{{\color{lightred}2}}}1
+{3}{{{\color{lightred}3}}}1
+{4}{{{\color{lightred}4}}}1
+{5}{{{\color{lightred}5}}}1
+{6}{{{\color{lightred}6}}}1
+{7}{{{\color{lightred}7}}}1
+{8}{{{\color{lightred}8}}}1
+{9}{{{\color{lightred}9}}}1,
+basicstyle=\footnotesize\ttfamily, % Standardschrift
+numbers=left,               % Ort der Zeilennummern
+%numberstyle=\tiny,          % Stil der Zeilennummern
+%stepnumber=2,               % Abstand zwischen den Zeilennummern
+numbersep=5pt,              % Abstand der Nummern zum Text
+tabsize=4,                  % Groesse von Tabs
+extendedchars=true,         %
+breaklines=true,            % Zeilen werden Umgebrochen
+keywordstyle=\color{blue}\bfseries,
+frame=b,
+commentstyle=\color{brown}\itshape,
+stringstyle=\color{editorOcher}\ttfamily, % Farbe der String
+showspaces=false,           % Leerzeichen anzeigen ?
+showtabs=false,             % Tabs anzeigen ?
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+%backgroundcolor=\color{lightgray},
+showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
+}%

@@ -1,0 +1,42 @@
+\thispagestyle{plain}
+\AddToShipoutPicture{\BackgroundPic}
+
+\begin{titlepage}
+
+\begin{center}
+
+\textbf{Westfälische Hochschule - Gelsenkirchen Bocholt Recklinghausen - 45877
+Gelsenkirchen} \\[-2ex]
+\rule{\textwidth}{1pt}
+\Large{Studiengang: {\studienrichtung}}\\[4em]
+\includegraphics[scale=1.3]{\logo}\\[4em]
+\semester\\
+\small{\fachsemester}\\[4em] 
+\normalsize
+
+\huge{\textbf{\titel}}\\[1.5ex]
+\Large{\textbf{\untertitel}}\\[5em]
+
+\end{center}
+\normalsize
+
+\small{Abgabedatum:} \\[-2ex]
+\textcolor{lightgray}{\rule{\textwidth}{1pt}}
+\normalsize
+\abgabedatum\\[1em] 
+
+\small{Aktualisierungsdatum:} \\[-2ex]
+\textcolor{lightgray}{\rule{\textwidth}{1pt}}
+\normalsize
+\datum\\[1em]
+
+\small{Autoren:} \\[-2ex]
+\textcolor{lightgray}{\rule{\textwidth}{1pt}}
+\normalsize
+\foreach \name/\matrikelnummer/\email in \autoren {
+	\studentprintout{\name}{\matrikelnummer}{\email} \\
+} 
+
+\noindent 
+\end{titlepage}
+\clearpage

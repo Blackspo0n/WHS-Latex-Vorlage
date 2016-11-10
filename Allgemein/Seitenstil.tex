@@ -1,0 +1,66 @@
+% Seitenränder -----------------------------------------------------------------
+\setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
+\geometry{a4paper,left=20mm,right=20mm,top=25mm,bottom=35mm}
+
+\usepackage[
+	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
+	headsepline,
+	plainheadsepline, % Trennlinie unter Kopfzeile
+	footsepline,
+	plainfootsepline,
+	ilines % Trennlinie linksbündig ausrichten
+]{scrpage2}
+
+% Kopf- und Fußzeilen ----------------------------------------------------------
+\pagestyle{scrheadings}
+
+\clearscrheadfoot
+
+% Kopfzeile
+\renewcommand{\headfont}{\normalfont} % Schriftform der Kopfzeile
+\ihead{\large{\textsc{\titel}}\\ \small{\untertitel} \\[2ex] \textit{\headmark}}
+\chead{} 
+\ohead{\includegraphics[scale=0.7]{\logo}}
+\setlength{\headheight}{15mm} % Höhe der Kopfzeile
+%\setheadwidth[0pt]{textwithmarginpar} % Kopfzeile über den Text hinaus verbreitern (falls Logo den Text überdeckt) 
+
+% Fußzeile
+
+\ifoot{\\
+	\begin{small}
+	\foreach \name/\matrikelnummer/\email in \autoren {
+		\studentprintoutsmall{\name}{\matrikelnummer} 
+	} \\
+	\end{small}
+}
+\normalsize
+\cfoot{} 
+\ofoot{\pagemark} 
+
+\onehalfspacing % Zeilenabstand 1,5 Zeilen
+\frenchspacing % erzeugt ein wenig mehr Platz hinter einem Punkt 
+
+% Schusterjungen und Hurenkinder vermeiden
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+% Quellcode-Ausgabe formatieren
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt, breaklines=true}
+\lstset{emph={square}, emphstyle=\color{red}, emph={[2]root,base}, emphstyle={[2]\color{blue}}}
+
+\counterwithout{footnote}{section} % Fußnoten fortlaufend durchnummerieren
+\setcounter{tocdepth}{\subsubsectionlevel} % im Inhaltsverzeichnis werden die Kapitel bis zum Level der subsubsection übernommen
+\setcounter{secnumdepth}{\subsubsectionlevel} % Kapitel bis zum Level der subsubsection werden nummeriert
+
+% Aufzählungen anpassen
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+\renewcommand{\labelenumiii}{\ar$abic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+
+% hauptfarbe
+\definecolor{WHSGreen}{rgb}{0.40, 0.6, 0}
+
+% Tabellenfärbung:
+\definecolor{heading}{rgb}{0.40, 0.6, 0}
+\definecolor{odd}{rgb}{0.9,0.9,0.9}
