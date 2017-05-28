@@ -10,23 +10,21 @@
 \usepackage[utf8]{inputenc}
 \usepackage[scaled]{uarial}
 
-\newcommand{\titel}{Betriebliche Standardsoftware}
-\newcommand{\untertitel}{Übungsblatt 4 - Rollen, Workflow, Entwicklung}
-\newcommand{\abgabedatum}{9. November 2016}
+\newcommand{\titel}{Latex Vorlage}
+\newcommand{\untertitel}{Im Design von der W-HS}
+\newcommand{\abgabedatum}{9. November 2000}
 \newcommand{\keywords}{BSS, SAP, Rollen, Workflow, Entwicklung}
 \newcommand{\datum}{\today} 
  
 \newcommand{\autoren}{
-	Mario Kellner/201520916/mario.kellner@studmail.w-hs.de,
-	Markus Hausmann/201524030/markus.hausmann@studmail.w-hs.de,
-	Jan Momper/201521501/jan-markus.momper@studmail.w-hs.de
+	Name/matrikelnummer/email@studmail.w-hs.de
 }
 
 \input{Meta.tex}
 \input{Allgemein/Packages.tex} 
 \input{Allgemein/Seitenstil.tex}
 \input{Allgemein/Befehle.tex}
-
+ 
 \begin{document}
 \input{Deckblatt.tex}
 \clearpage
@@ -54,4 +52,12 @@
 %\clearpage
 %\listoftables
 %\clearpage
+
+\clearpage	
+
+\appendix
+\pagenumbering{roman}
+\bibliographystyle{Allgemein/natdin}
+\bibliography{Bibliographie}
+
 \end{document}
